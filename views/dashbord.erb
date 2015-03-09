@@ -8,7 +8,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 </head>
 <body>
   <h1>dashbords</h1>
-  <p><%= @user %>さんのページ</p>
+  <h2><%= @user %>さんのページ</h2>
+  <h2><%= @user %>さんの投稿一覧</h2>
+  <p>
+  	<%= @posts %>
+  </p>
+  <h2>投稿フォーム</h2>
+  <form method="POST" action="/dashbord">
+    <p>タイトル</p><input type="text" name="title">
+    <p>説明</p><input type="text" name="explain">
+    <p>サイトURL</p><input type="url" name="url">
+    <input type="submit" value="投稿">
+  </form>
 </body>
 </html>
 

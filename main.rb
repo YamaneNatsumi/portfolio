@@ -31,9 +31,6 @@ get '/register' do
   erb :register
 end
 
-
-
-
 post '/register' do
   if request[:user] and request[:password]
     unless User.where(user: request[:user].strip).first
@@ -62,6 +59,7 @@ end
 get '/dashbord/?:user?' do |u|
   if session[:user] = params[:user] then
     @user=u
+    @posts = Post.order("created_at DESC").all
     erb :dashbord
   else
     redirect '/login'
@@ -69,8 +67,14 @@ get '/dashbord/?:user?' do |u|
 end
 
 post '/dashbord/?:user?' do 
-
-  redirect '/dashbord/?:user?'
+  Post.create({
+    :title => request[:title],
+    :explain => request[:explain],
+    :url => request[:url],
+    #:image => request[:image],
+    :created_at => Time.now,
+  })
+  redirect "/dashbord/#{params[:user]}"
 end
 #single---------------------------------------------
 get '/single' do 
