@@ -58,7 +58,7 @@ post '/login' do
 end
 #dashbord---------------------------------------------
 get '/dashbord/?:user?' do |u|
-  if session[:user] = params[:user]#ここちがうううう
+  if session[:user] = params[:user] then#←ここちがうのかな？
     @user=u
     erb :dashbord
   else
