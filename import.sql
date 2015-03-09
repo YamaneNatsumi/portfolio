@@ -3,7 +3,8 @@ CREATE TABLE users (
   user text,
   comment text,
   password text,
-  image text
+  image text,
+  created_at numeric
 );
 CREATE TABLE posts (
   id integer primary key,

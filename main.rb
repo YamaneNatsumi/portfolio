@@ -31,13 +31,16 @@ get '/register' do
   erb :register
 end
 
+
+
+
 post '/register' do
   if request[:user] and request[:password]
     unless User.where(user: request[:user].strip)
       User.create({
         :user => request[:user].strip,
         :password => request[:password].strip,
-        :comment => request[:comment].strip,
+        # :comment => request[:comment].strip,
       })     
     end
     redirect "/dashbord/#{request[:user]}"
@@ -49,7 +52,7 @@ get '/login' do
 end
 
 post '/login' do 
-  if User.where(user: request[:user].strip, password: request[:password].strip)
+  if User.where(user: request[:user].strip, password: request[:password].strip).first
     session[:user] = request[:user].strip
     redirect "/dashbord/#{request[:user]}"
   else
@@ -58,7 +61,7 @@ post '/login' do
 end
 #dashbord---------------------------------------------
 get '/dashbord/?:user?' do |u|
-  if session[:user] = params[:user] then#←ここちがうのかな？
+  if session[:user] = params[:user] then
     @user=u
     erb :dashbord
   else
