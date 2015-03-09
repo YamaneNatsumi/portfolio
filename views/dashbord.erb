@@ -14,7 +14,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   	<%= @posts %>
   </p>
   <h2>投稿フォーム</h2>
-  <form method="POST" action="/dashbord/yamanatsu">
+  <form method="POST" action="/dashbord/<%= @user %>">
     <p>タイトル</p><input type="text" name="title">
     <p>説明</p><input type="text" name="explain">
     <p>サイトURL</p><input type="url" name="url">
