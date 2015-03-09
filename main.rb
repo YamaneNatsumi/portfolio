@@ -59,7 +59,7 @@ end
 get '/dashbord/?:user?' do |u|
   if session[:user] = params[:user] then
     @user=u
-    @posts = Post.order("created_at DESC").all
+    @posts = Post.order("").all
     erb :dashbord
   else
     redirect '/login'
