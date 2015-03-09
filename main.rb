@@ -3,8 +3,8 @@ require 'sinatra/reloader'
 require 'active_record'
 
 ActiveRecord::Base.establish_connection(
-  "adapter" => "sqlite3",
-  "database" => "./portfoliosdb.db"
+  adapter:  "sqlite3",
+  database: "development.sqlite3"
 )
 
 helpers do
@@ -36,12 +36,10 @@ end
 
 post '/register' do
   if request[:user] and request[:password]
-    unless User.where(user: request[:user].strip)
-      User.create({
-        :user => request[:user].strip,
-        :password => request[:password].strip,
+    unless User.where(user: request[:user].strip).first
+      User.create(:user => request[:user].strip, :password => request[:password].strip)
         # :comment => request[:comment].strip,
-      })     
+      #)     
     end
     
     redirect "/dashbord/#{request[:user]}"
