@@ -43,6 +43,7 @@ post '/register' do
         # :comment => request[:comment].strip,
       })     
     end
+    
     redirect "/dashbord/#{request[:user]}"
   end
 end
