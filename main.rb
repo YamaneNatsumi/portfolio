@@ -2,6 +2,11 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
 
+set :public, File.dirname(__FILE__) + '/public'
+
+enable :sessions
+set :session_secret, 'yamanatsu'
+
 ActiveRecord::Base.establish_connection(
   adapter:  "sqlite3",
   database: "development.sqlite3"
@@ -24,6 +29,7 @@ end
 
 #home---------------------------------------------
 get '/' do 
+  @posts = Post.order("created_at DESC").all
   erb :index
 end
 #register---------------------------------------------
@@ -44,7 +50,13 @@ post '/register' do
 end
 #login---------------------------------------------
 get '/login' do 
-  erb :login
+  # if session[:user] == params[:user] then
+  print session[:user]
+  if session[:user] then
+    redirect "/dashbord/#{session[:user]}"
+  else
+    erb :login
+  end
 end
 
 post '/login' do 
@@ -55,11 +67,28 @@ post '/login' do
     erb :login
   end
 end
+#logout---------------------------------------------
+get '/logout' do
+  session.delete(:user)
+  redirect "/"
+end
 #dashbord---------------------------------------------
 get '/dashbord/?:user?' do |u|
-  if session[:user] = params[:user] then
-    @user=u
-    @posts = Post.order("").all
+  print session[:user]
+  print session[:user]
+
+  if session[:user] == params[:user] then
+    @user=params[:user]
+    @posts = Post.order("created_at DESC").all
+
+
+     images_name = Dir.glob("public/images/*")
+   @images_path = ''
+  
+   images_name.each do |image|
+     @images_path << image.gsub("public/", "public/")
+    end
+
     erb :dashbord
   else
     redirect '/login'
@@ -67,16 +96,25 @@ get '/dashbord/?:user?' do |u|
 end
 
 post '/dashbord/?:user?' do 
+     
+
+  save_path = "./public/images/#{params[:file][:filename]}"
+ 
+  File.open(save_path, 'wb') do |f|
+    p params[:file][:tempfile]
+    f.write params[:file][:tempfile].read
+    @mes = "アップロード成功"
+  end
   Post.create({
     :title => request[:title],
     :explain => request[:explain],
     :url => request[:url],
-    #:image => request[:image],
+    :image => save_path,
     :created_at => Time.now,
   })
   redirect "/dashbord/#{params[:user]}"
 end
 #single---------------------------------------------
-get '/single' do 
+get '' do 
   erb :single
 end

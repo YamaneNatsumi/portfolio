@@ -4,10 +4,20 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <html lang="ja">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>PORTFOLIOS</title>
+  <title>Portfolios</title>
 </head>
 <body>
-  <h1>HOME</h1>
+	<header style="border-bottom:1px #dedede solid;">
+		<h1 style="text-align:center;">Portfolios</h1>
+		<p style="text-align:center;"><a href="/login">投稿する</a></p>
+	</header>
+  <ul>
+  	<% @posts.each do |post| %>
+    <li data-id="<%= post.id %>">
+    <a href="<%= h post.url %>" target="_blank"><%= h post.title %></a><%= h post.created_at %>
+    </li>
+    <% end %>
+  </ul>
 </body>
 </html>
 
