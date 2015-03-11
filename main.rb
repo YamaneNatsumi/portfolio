@@ -86,7 +86,7 @@ get '/dashbord/?:user?' do |u|
    @images_path = ''
   
    images_name.each do |image|
-     @images_path << image.gsub("public/", "public/")
+     @images_path << image.gsub("public/", "/")
     end
 
     erb :dashbord
