@@ -117,3 +117,7 @@ end
 get '' do 
   erb :single
 end
+#delete---------------------------------------------
+post '/delete' do
+  Post.find(params[:id]).destroy
+end
