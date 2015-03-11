@@ -7,16 +7,22 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   <title>PORTFOLIOS</title>
 </head>
 <body>
-
-  <h1>dashbords</h1>
-  <h2><%= @user %>さんのページ</h2>
-  <h2><%= @user %>さんの投稿一覧</h2>
+<header style="border-bottom:1px #dedede solid;">
+    <h1 style="text-align:center;">Portfolios</h1>
+    <p style="text-align:center;"><a href="/login">投稿する</a></p>
+  </header>
+  <h2>dashbords</h2>
+  <div style="border-bottom:1px #dedede solid;">
   
+  <h3><%= @user.user %>さんの投稿一覧</h3>
+  <h4><%= @user.comment %></h4>
+ 
+  </div>
   <ul>
   	<% @posts.each do |post| %>
     <li data-id="<%= post.id %>">
-      <img src="<%= post.image %>" alt="" />
-      <h3><%= h post.title %></h3>
+      <img src="<%= post.image %>" alt="<%= h post.title %>" width="300" / >
+      <h4><%= h post.title %></h4>
       <p><%= h post.explain %></p>
       <p><%= h post.url %></p>
       <p><%= h post.created_at %></p>
@@ -24,7 +30,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     </li>
     <% end %>
   </ul>
-  <h2>投稿フォーム</h2>
+  <h3>投稿フォーム</h3>
   <form method="POST" action="/dashbord/<%= @user %>" enctype="multipart/form-data">
   <p>画像</p><input type="file" name="file">
     <p>タイトル</p><input type="text" name="title">

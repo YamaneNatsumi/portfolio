@@ -40,9 +40,21 @@ end
 post '/register' do
   if request[:user] and request[:password]
     unless User.where(user: request[:user].strip).first
-      User.create(:user => request[:user].strip, :password => request[:password].strip)
-        # :comment => request[:comment].strip,
-      #)     
+
+      save_path = "./public/images/#{params[:file][:filename]}"
+ 
+  File.open(save_path, 'wb') do |f|
+    p params[:file][:tempfile]
+    f.write params[:file][:tempfile].read
+    @mes = "アップロード成功"
+  end
+
+      User.create({
+        :user => request[:user].strip,
+        :password => request[:password].strip,
+        :image => "/images/#{params[:file][:filename]}",
+        :comment => request[:comment],
+        })     
     end
     
     redirect "/dashbord/#{request[:user]}"
@@ -75,7 +87,8 @@ end
 #dashbord---------------------------------------------
 get '/dashbord/?:user?' do |u|
   if session[:user] == params[:user] then
-    @user=params[:user]
+    @user = User.where(user: params[:user]).first
+    
     @posts = Post.order("created_at DESC").all
 
    #   images_name = Dir.glob("public/images/*")
