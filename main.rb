@@ -81,13 +81,12 @@ get '/dashbord/?:user?' do |u|
     @user=params[:user]
     @posts = Post.order("created_at DESC").all
 
-
-     images_name = Dir.glob("public/images/*")
-   @images_path = ''
+   #   images_name = Dir.glob("public/images/*")
+   # @images_path = ''
   
-   images_name.each do |image|
-     @images_path << image.gsub("public/", "/")
-    end
+   # images_name.each do |image|
+   #   @images_path << image.gsub("public/", "/")
+   #  end
 
     erb :dashbord
   else
@@ -109,7 +108,7 @@ post '/dashbord/?:user?' do
     :title => request[:title],
     :explain => request[:explain],
     :url => request[:url],
-    :image => save_path,
+    :image => "/images/#{params[:file][:filename]}",
     :created_at => Time.now,
   })
   redirect "/dashbord/#{params[:user]}"
