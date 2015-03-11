@@ -14,7 +14,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   <ul>
   	<% @posts.each do |post| %>
     <li data-id="<%= post.id %>">
-    <a href="<%= h post.url %>" target="_blank"><%= h post.title %></a><%= h post.created_at %>
+    <a href="<%= h post.url %>" target="_blank"><%= h post.title %></a>
+    <p><%= h post.created_at %></p>
+    <p><%= h post.user %></p>
     </li>
     <% end %>
   </ul>

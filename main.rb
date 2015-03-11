@@ -74,9 +74,6 @@ get '/logout' do
 end
 #dashbord---------------------------------------------
 get '/dashbord/?:user?' do |u|
-  print session[:user]
-  print session[:user]
-
   if session[:user] == params[:user] then
     @user=params[:user]
     @posts = Post.order("created_at DESC").all
@@ -110,6 +107,7 @@ post '/dashbord/?:user?' do
     :url => request[:url],
     :image => "/images/#{params[:file][:filename]}",
     :created_at => Time.now,
+    :user => session[:user],
   })
   redirect "/dashbord/#{params[:user]}"
 end
