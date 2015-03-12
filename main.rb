@@ -119,7 +119,7 @@ end
 #User---------------------------------------------
 get '/user/:user' do
     @user = User.where(user: params[:user]).first
-    @posts = Post.order("created_at DESC").all
+    @posts = Post.where(user: params[:user]).order("created_at DESC").all
     erb :userpage
 end
 #single---------------------------------------------
