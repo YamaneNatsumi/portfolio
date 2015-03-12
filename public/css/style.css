@@ -1,0 +1,445 @@
+@charset "utf-8";
+
+/* リセットCSS
+------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style-type: none;
+  text-shadow:none;
+  text-decoration: none;
+  
+}
+a{
+  word-break: break-all;
+  text-decoration: none;
+  color: #555;
+}
+
+/* 全体設定
+------------------------------------------------------------*/
+html{
+  width: 100%;
+}
+body{
+  position: relative;
+	width: 100%;
+  color:#55555;
+  font-size: 12px;
+  line-height: 18px;
+  background:url(/images/bg.png);
+  font-family: 'ヒラギノ角ゴ ProN' , 'Hiragino Kaku Gothic ProN' , 'メイリオ' , Meiryo , 'ＭＳ ゴシック' , 'MS Gothic' , HiraKakuProN-W3 , 'TakaoExゴシック' , TakaoExGothic , 'MotoyaLCedar' , 'Droid Sans Japanese' , sans-serif !important;
+  }
+.clear{
+	clear: both;
+}
+.clearfix:after {  
+  content: ".";   
+  display: block;   
+  height: 0;   
+  clear: both;   
+  visibility: hidden;  
+}
+.wrap{
+  width: 960px;
+  margin: 0 auto;
+}
+.whitebox{
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;        
+  -webkit-border-radius: 5px;    
+  -moz-border-radius: 5px;
+  box-shadow: 0px 3px 3px #f2f2f2;
+  -moz-box-shadow: 0px 3px 3px #f2f2f2;　/* Firefox用 */  
+  -webkit-box-shadow: 0px 3px 3px #f2f2f2;　/* Safari,Google Chrome用 */
+}
+/* 共通
+------------------------------------------------------------*/
+/*header----------------------*/
+header{
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 0px 2px 4px #eeeeee;
+  -moz-box-shadow: 0px 2px 4px #eeeeee;　/* Firefox用 */  
+  -webkit-box-shadow: 0px 2px 4px #eeeeee;　/* Safari,Google Chrome用 */
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+#headerWrap{
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+}
+header #logo{
+  text-align: center;
+}
+.headerLink{
+  position: absolute;
+  right: 0;
+  top: 8px;
+}
+.borderLink{
+  padding: 0 10px;
+  display: inline-block;
+  margin-left: 20px;
+  color: #b53090;
+  font-size: 14px;
+  line-height: 34px;
+  border: 1px #b53090 solid;
+  border-radius: 5px;        
+  -webkit-border-radius: 5px;    
+  -moz-border-radius: 5px;
+  transition: all .3s;  
+}
+.borderLink:hover{
+  background-color: #b53090;
+  color: #fff;
+}
+/*postBox----------------------*/
+.boxWrap{
+  padding-top: 92px;
+}
+.postBox{
+  float: left;
+  margin: 30px 30px 0 0;
+  width: 300px;
+}
+.threeColumn .postBox:nth-child(3n){
+  margin: 30px 0 0 0;
+}
+.imgWrap{
+  width:300px;
+  height: 210px;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;        
+  -webkit-border-radius: 5px 5px 0 0;    
+  -moz-border-radius: 5px 5px 0 0;
+  display: block;
+}
+.postBox img{
+  height: 210px;
+  text-align: center;
+}
+.contentWrap{
+  padding: 20px 20px 52px 20px;
+}
+.title{
+  font-size: 16px;
+  line-height: 16px;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+.title:first-letter{
+  color: #b53090;
+}
+.explain{
+  height: 36px;
+  overflow: hidden;
+}
+.user{
+  transition: all .3s;
+  line-height: 22px;
+  padding: 0 20px 0 10px;
+  color: #fff;
+  display: inline-block;
+  border-radius: 5px 0 0 5px;        
+  -webkit-border-radius: 5px 0 0 5px;    
+  -moz-border-radius: 5px 0 0 5px;
+  background-color: #bbbbbb;
+  position: absolute;
+  bottom: 20px;
+  right: -2px;
+  box-shadow: 0px 1px 2px #f2f2f2;
+  -moz-box-shadow: 0px 1px 2px #f2f2f2;　/* Firefox用 */  
+  -webkit-box-shadow: 0px 1px 2px #f2f2f2;　/* Safari,Google Chrome用 */
+}
+.user:hover{
+  background-color: #b53090;
+}
+/*form----------------------*/
+dt{
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: bold;
+  float: left;
+  margin-bottom: 20px;
+  color: #b53090;
+}
+dd{
+  float: left;
+  margin-bottom: 20px;
+}
+input{
+  height: 24px;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 0 5px;
+  -webkit-appearance:none;
+  border: 1px #dedede solid;
+}
+/* dashborad
+------------------------------------------------------------*/
+.posts .contentWrap{
+  padding: 20px 20px 17px 20px;
+}
+/*acountBox----------------------*/
+.acountBox{
+  position: relative;
+  float: left;
+  width: 300px;
+  margin: 30px 0 0 0;
+}
+.acountBg img{
+  border-radius: 5px 5px 0 0;        
+  -webkit-border-radius: 5px 5px 0 0;    
+  -moz-border-radius: 5px 5px 0 0;
+}
+.acoutImg{
+  width: 122px;
+  height: 122px;
+  border-radius:66px;        
+  -webkit-border-radius:66px;    
+  -moz-border-radius:66px;
+  overflow: hidden;
+  position: absolute;
+  border: 5px #fff solid;
+  top: 75px;
+  left: 87px;
+}
+.acoutImg img{
+  height: 122px;
+  width: auto;
+}
+.acountInfo{
+  padding: 0 20px 17px 20px;
+}
+.acountBox h1{
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #b53090;
+  margin: 69px 0 7px 0;
+}
+.acountBox p{
+ height: 54px;
+ overflow: hidden;
+ text-align: center;
+}
+/*postform----------------------*/
+.postform{
+  float: left;
+  width: 630px;
+  margin:30px 0 0 30px;
+}
+.postform h2{
+  background-color: #b53090;
+  line-height: 40px;
+  font-size: 16px;
+  border-radius: 5px 5px 0 0;        
+  -webkit-border-radius: 5px 5px 0 0;    
+  -moz-border-radius: 5px 5px 0 0;
+  padding-left: 20px;
+  color: #fff;
+  font-weight: normal;
+}
+.formWrap{
+  padding: 20px;
+}
+.formWrap dt{
+  width: 137px;
+}
+.formWrap input{
+  width: 441px;
+}
+.fileform{
+  height: 26px;
+}
+.fileform input{
+  border: none !important;
+}
+#postBtn{
+  padding: 0 10px;
+  display: block;
+  margin-left: 20px;
+  color: #b53090;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 34px;
+  border: 1px #b53090 solid;
+  border-radius: 5px;        
+  -webkit-border-radius: 5px;    
+  -moz-border-radius: 5px;
+  transition: all .3s;
+  width: 62px;
+  line-height: 34px;
+  height: 34px;
+  float: right;
+  margin: 8px 0 0 0;
+  font-family: 'ヒラギノ角ゴ ProN' , 'Hiragino Kaku Gothic ProN' , 'メイリオ' , Meiryo , 'ＭＳ ゴシック' , 'MS Gothic' , HiraKakuProN-W3 , 'TakaoExゴシック' , TakaoExGothic , 'MotoyaLCedar' , 'Droid Sans Japanese' , sans-serif !important;
+}
+#postBtn:hover{
+  background-color: #b53090;
+  color: #fff;
+}
+
+.deleteCmd{
+  border-radius: 5px;        
+  -webkit-border-radius: 5px;    
+  -moz-border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #b53090;
+  font-size: 16px;
+}
+/* userpage
+------------------------------------------------------------*/
+.userContents{
+  width: 630px;
+  float: right;
+}
+.userContents .postBox:nth-child(2n){
+  margin: 30px 0 0 0;
+}
+/* login
+------------------------------------------------------------*/
+.firstView{
+  height: 100%;
+  overflow: hidden;
+  display: block;
+}
+.loginWrap{
+  margin-top: 8%;
+}
+.loginLogo{
+  text-align: center;
+}
+.loginBox{
+  width: 360px;
+  margin: 20px auto;
+}
+.loginFormWrap{
+  padding: 20px;
+}
+.loginFormWrap dt{
+  width: 60px;
+}
+.loginFormWrap input{
+  width: 248px;
+}
+.loginBox h1,.registerBox h1{
+  background-color: #b53090;
+  line-height: 40px;
+  font-size: 16px;
+  border-radius: 5px 5px 0 0;        
+  -webkit-border-radius: 5px 5px 0 0;    
+  -moz-border-radius: 5px 5px 0 0;
+  padding-left: 20px;
+  color: #fff;
+  font-weight: normal;
+}
+#loginBtn{
+  padding: 0 10px;
+  display: block;
+  margin-left: 20px;
+  color: #b53090;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 34px;
+  border: 1px #b53090 solid;
+  border-radius: 5px;        
+  -webkit-border-radius: 5px;    
+  -moz-border-radius: 5px;
+  transition: all .3s;
+  width: 62px;
+  line-height: 34px;
+  height: 34px;
+  margin: 8px auto 20px auto;
+  font-family: 'ヒラギノ角ゴ ProN' , 'Hiragino Kaku Gothic ProN' , 'メイリオ' , Meiryo , 'ＭＳ ゴシック' , 'MS Gothic' , HiraKakuProN-W3 , 'TakaoExゴシック' , TakaoExGothic , 'MotoyaLCedar' , 'Droid Sans Japanese' , sans-serif !important;
+}
+#loginBtn:hover{
+  background-color: #b53090;
+  color: #fff;
+}
+.toRegister,.toHome{
+  text-align: center;
+}
+.toHome a,.toRegister a{
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #b53090;
+}
+.toRegister a{
+  background:url(/images/login.png) no-repeat left center;
+  padding-left: 19px;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #b53090;
+}
+/* register
+------------------------------------------------------------*/
+.registerBox{
+  width: 418px;
+  margin: 20px auto;
+}
+.registerFormWrap{
+  padding: 20px;
+}
+.registerFormWrap dt{
+  width: 118px;
+}
+.registerFormWrap input{
+  width: 248px;
+}
+#registerBtn{
+  padding: 0 10px;
+  display: block;
+  margin-left: 20px;
+  color: #b53090;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 34px;
+  border: 1px #b53090 solid;
+  border-radius: 5px;        
+  -webkit-border-radius: 5px;    
+  -moz-border-radius: 5px;
+  transition: all .3s;
+  width: 140px;
+  line-height: 34px;
+  height: 34px;
+  margin: 8px auto 20px auto;
+  font-family: 'ヒラギノ角ゴ ProN' , 'Hiragino Kaku Gothic ProN' , 'メイリオ' , Meiryo , 'ＭＳ ゴシック' , 'MS Gothic' , HiraKakuProN-W3 , 'TakaoExゴシック' , TakaoExGothic , 'MotoyaLCedar' , 'Droid Sans Japanese' , sans-serif !important;
+}
+#registerBtn:hover{
+  background-color: #b53090;
+  color: #fff;
+}

@@ -26,7 +26,6 @@ class Post < ActiveRecord::Base
     self.created_at.strftime("%Y-%m-%d %H:%M:%S")
   end
 end
-
 #home---------------------------------------------
 get '/' do 
   @posts = Post.order("created_at DESC").all

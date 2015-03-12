@@ -1,25 +1,43 @@
-<!DOCTYPE html
-PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Portfolios</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="みんなのポートフォリオ集めました。MECOMはユーザー投稿型ポートフォリオサイト。">
+  <meta name="keywords" content="ポートフォリオ,ウェブデザイン,ギャラリー,MECOM">
+  <title>MECOM ｜ みんなのポートフォリオ集</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- favicon -->
+<link rel="apple-touch-icon" href="/images/favicon.ico">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="/images/favicon.ico"/>
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen">
 </head>
 <body>
-	<header style="border-bottom:1px #dedede solid;">
-		<h1 style="text-align:center;"><a href="/">MECOM</a></h1>
-		<p style="text-align:center;"><a href="/login">投稿する</a></p>
+	<header>
+		<div id="headerWrap">
+			<h1 id="logo"><a href="/"><img src="/images/logo.png" alt="MECOM"></a></h1>
+			<div class="headerLink">
+				<a href="/login" class="borderLink post">Post</a>
+			</div>
+		</div>
 	</header>
-  <ul>
+  <div class="boxWrap clearfix wrap threeColumn">
   	<% @posts.each do |post| %>
-    <li data-id="<%= post.id %>">
-    <img src="<%= post.image %>" alt="<%= h post.title %>" width="300" / >
-    <a href="<%= h post.url %>" target="_blank"><%= h post.title %></a>
-    <p><a href="/user/<%= h post.user %>"><%= h post.user %></a></p>
-    </li>
+    <div data-id="<%= post.id %>" class="postBox whitebox">
+		    <a href="<%= h post.url %>" target="_blank" class="imgWrap">
+		    	<img src="<%= post.image %>" alt="<%= h post.title %>"/ >
+		    </a>
+		    <div class="contentWrap">
+	    		<a href="<%= h post.url %>" target="_blank" class="title"><%= h post.title %></a>
+	    		<p class="explain"><%= h post.explain %></p>
+	    		<a href="/user/<%= h post.user %>" class="user"><%= h post.user %></a>
+	    	</div>
+    </div>
     <% end %>
-  </ul>
+  </div>
 </body>
 </html>
 
