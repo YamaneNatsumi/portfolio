@@ -1,0 +1,35 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>PORTFOLIOS</title>
+</head>
+<body>
+<header style="border-bottom:1px #dedede solid;">
+    <h1 style="text-align:center;">Portfolios</h1>
+    <p style="text-align:center;"><a href="/login">投稿する</a></p>
+  </header>
+  <h2>UserPage</h2>
+  <div style="border-bottom:1px #dedede solid;">
+  <img src="<%= @user.image %>" alt="<%= @user.user %>" width="100" / >
+  <h3><%= @user.user %>さんの投稿一覧</h3>
+  <h4><%= @user.comment %></h4>
+ 
+  </div>
+  <ul>
+  	<% @posts.each do |post| %>
+    <li data-id="<%= post.id %>">
+      <img src="<%= post.image %>" alt="<%= h post.title %>" width="300" / >
+      <h4><%= h post.title %></h4>
+      <p><%= h post.explain %></p>
+      <p><%= h post.url %></p>
+      <p><%= h post.created_at %></p>
+    </li>
+    <% end %>
+  </ul>
+  
+</body>
+</html>
+

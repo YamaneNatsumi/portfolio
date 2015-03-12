@@ -57,7 +57,7 @@ post '/register' do
         })     
     end
     
-    redirect "/dashbord/#{request[:user]}"
+    redirect "/dashboard/#{request[:user]}"
   end
 end
 #login---------------------------------------------
@@ -65,7 +65,7 @@ get '/login' do
   # if session[:user] == params[:user] then
   print session[:user]
   if session[:user] then
-    redirect "/dashbord/#{session[:user]}"
+    redirect "/dashboard/#{session[:user]}"
   else
     erb :login
   end
@@ -74,7 +74,7 @@ end
 post '/login' do 
   if User.where(user: request[:user].strip, password: request[:password].strip).first
     session[:user] = request[:user].strip
-    redirect "/dashbord/#{request[:user]}"
+    redirect "/dashboard/#{request[:user]}"
   else
     erb :login
   end
@@ -84,27 +84,19 @@ get '/logout' do
   session.delete(:user)
   redirect "/"
 end
-#dashbord---------------------------------------------
-get '/dashbord/?:user?' do |u|
+#dashboard---------------------------------------------
+get '/dashboard/?:user?' do |u|
   if session[:user] == params[:user] then
     @user = User.where(user: params[:user]).first
-    
-    @posts = Post.order("created_at DESC").all
+    @posts = Post.where(user: params[:user]).order("created_at DESC").all
 
-   #   images_name = Dir.glob("public/images/*")
-   # @images_path = ''
-  
-   # images_name.each do |image|
-   #   @images_path << image.gsub("public/", "/")
-   #  end
-
-    erb :dashbord
+    erb :dashboard
   else
     redirect '/login'
   end
 end
 
-post '/dashbord/?:user?' do 
+post '/dashboard/?:user?' do 
      
 
   save_path = "./public/images/#{params[:file][:filename]}"
@@ -122,7 +114,13 @@ post '/dashbord/?:user?' do
     :created_at => Time.now,
     :user => session[:user],
   })
-  redirect "/dashbord/#{params[:user]}"
+  redirect "/dashboard/#{params[:user]}"
+end
+#User---------------------------------------------
+get '/user/:user' do
+    @user = User.where(user: params[:user]).first
+    @posts = Post.order("created_at DESC").all
+    erb :userpage
 end
 #single---------------------------------------------
 get '' do 

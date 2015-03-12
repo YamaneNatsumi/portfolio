@@ -8,15 +8,15 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 </head>
 <body>
 	<header style="border-bottom:1px #dedede solid;">
-		<h1 style="text-align:center;">Portfolios</h1>
+		<h1 style="text-align:center;"><a href="/">MECOM</a></h1>
 		<p style="text-align:center;"><a href="/login">投稿する</a></p>
 	</header>
   <ul>
   	<% @posts.each do |post| %>
     <li data-id="<%= post.id %>">
+    <img src="<%= post.image %>" alt="<%= h post.title %>" width="300" / >
     <a href="<%= h post.url %>" target="_blank"><%= h post.title %></a>
-    <p><%= h post.created_at %></p>
-    <p><%= h post.user %></p>
+    <p><a href="/user/<%= h post.user %>"><%= h post.user %></a></p>
     </li>
     <% end %>
   </ul>
