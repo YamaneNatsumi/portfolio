@@ -30,13 +30,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
       <form method="POST" action="/register" enctype="multipart/form-data">
         <dl>
           <dt>ID</dt>
-          <dd><input type="text" name="user"></dd>
+          <dd><input type="text" name="user" placeholder ="※半角英数字26文字以内"></dd>
           <dt>PASS</dt>
-          <dd><input type="password" name="password"></dd>
+          <dd><input type="password" name="password" placeholder ="※半角英数字"></dd>
           <dt>アカウント画像</dt>
           <dd class="fileform"><input type="file" name="file"></dd>
           <dt>自己紹介</dt>
-          <dd><input type="text" name="comment"></dd>
+          <dd><input type="text" name="comment" placeholder ="※60文字以内"></dd>
         </dl>
         <input type="submit" value="アカウントを作成" id="registerBtn">
       </form>

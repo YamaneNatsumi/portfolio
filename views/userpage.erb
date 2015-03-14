@@ -18,17 +18,20 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <link rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
   <!-- css -->
   <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen">
-
+  <!-- js -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/common.js"></script>
 </head>
 <body>
 <header>
     <div id="headerWrap">
-      <p id="logo"><a href="/"><img src="/images/logo.png" alt="MECOM"></a></p>
+      <p id="logo"><a href="/"><img src="/images/logo.png" alt="MECOM" width="155" height="52"></a></p>
       <div class="headerLink">
         <a href="/login" class="borderLink post">Post</a>
       </div>
     </div>
   </header>
+  <div id="top"></div>
   <div class="boxWrap clearfix wrap">
   <div class="acountBox whitebox">
   <div class="acountBg">
@@ -41,6 +44,21 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
       <h1><%= @user.user %></h1>
       <p><%= @user.comment %></p>
     </div>
+    <ul class="clearfix sns">
+        <li class="tweet">
+          <a target="_blank" class="p-social-button p-social-button--normal p-social-button--twitter ng-scope" slcty-sns-tweet="" url="http://selecty.me/article/23262540484379470" label="タイトル" ac-ga-evt="" category="pc" action="twitter_big" href="http://twitter.com/intent/tweet?url=<%= @url %>&text=<%= @user.user %>のポートフォリオ&related=関連アカウント">
+                  <img src="/images/t.png" />
+              </a>
+        </li>
+        <li class="facebook">
+          <a href="http://www.facebook.com/share.php?u=<<%= @url %>" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="/images/f.png" /></a>
+        </li>
+        <li class="hatena">
+          <a target="_blank" class="-bookmark-button" data-hatena-bookmark-lang="ja" href="http://b.hatena.ne.jp/add?mode=confirm&url=<%= @url %>&title=<%= @user.user %>のポートフォリオ">
+            <img src="/images/b.png" />
+          </a>
+        </li>
+      </ul>
   </div>
   <div class="posts userContents clearfix">
 <% @posts.each do |post| %>
@@ -56,7 +74,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     <% end %>
 </div>
 </div>
-  
+  <p class="pagetop"><a href="#top">↑</a></p>
 </body>
 </html>
 

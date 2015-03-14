@@ -119,11 +119,8 @@ end
 get '/user/:user' do
     @user = User.where(user: params[:user]).first
     @posts = Post.where(user: params[:user]).order("created_at DESC").all
+    @url = request.url
     erb :userpage
-end
-#single---------------------------------------------
-get '' do 
-  erb :single
 end
 #delete---------------------------------------------
 post '/delete' do

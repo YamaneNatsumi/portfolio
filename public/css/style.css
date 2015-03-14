@@ -75,9 +75,9 @@ header{
   width: 100%;
   background-color: #fff;
   padding: 20px 0;
-  box-shadow: 0px 2px 4px #eeeeee;
-  -moz-box-shadow: 0px 2px 4px #eeeeee;　/* Firefox用 */  
-  -webkit-box-shadow: 0px 2px 4px #eeeeee;　/* Safari,Google Chrome用 */
+  box-shadow: 0px 0px 5px #b3b3b3;
+  -moz-box-shadow: 0px 0px 5px #b3b3b3;　/* Firefox用 */  
+  -webkit-box-shadow: 0px 0px 5px #b3b3b3;　/* Safari,Google Chrome用 */
   top: 0;
   left: 0;
   z-index: 99999;
@@ -89,6 +89,7 @@ header{
 }
 header #logo{
   text-align: center;
+  transition: all .3s;
 }
 .headerLink{
   position: absolute;
@@ -115,6 +116,7 @@ header #logo{
 /*postBox----------------------*/
 .boxWrap{
   padding-top: 92px;
+  height: 300px;
 }
 .postBox{
   float: left;
@@ -132,10 +134,21 @@ header #logo{
   -webkit-border-radius: 5px 5px 0 0;    
   -moz-border-radius: 5px 5px 0 0;
   display: block;
+  background-color: #555;
+  transition: all .3s;
 }
 .postBox img{
   height: 210px;
+  transition: all .3s;
   text-align: center;
+  position: relative;
+  left: -20%;
+  text-align: center;
+  vertical-align: center;
+}
+.postBox img:hover{
+  opacity: 0.8;
+    -webkit-transform: scale(1.05);
 }
 .contentWrap{
   padding: 20px 20px 52px 20px;
@@ -146,6 +159,10 @@ header #logo{
   display: block;
   font-weight: bold;
   margin-bottom: 7px;
+  transition: all .3s;
+}
+.title:hover{
+  color: #b53090;
 }
 .title:first-letter{
   color: #b53090;
@@ -194,6 +211,35 @@ input{
   padding: 0 5px;
   -webkit-appearance:none;
   border: 1px #dedede solid;
+}
+
+
+/*pagetop----------------------*/
+.pagetop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+.pagetop a {
+    display: block;
+    border: 1px #b53090 solid;
+    text-align: center;
+    color: #b53090;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 50px;
+    width: 50px;
+    font-weight: bold;
+    border-radius: 5px;        
+  -webkit-border-radius: 5px;    
+  -moz-border-radius: 5px;
+  transition: all .3s;
+}
+.pagetop a:hover {
+    font-size: 16px;
+    background-color: #b53090;
+    color: #fff;
 }
 /* dashborad
 ------------------------------------------------------------*/
@@ -325,6 +371,16 @@ input{
 }
 .userContents .postBox:nth-child(2n){
   margin: 30px 0 0 0;
+}
+.sns{
+  width: 160px;
+  margin: 0 auto 20px auto;
+}
+.sns li{
+  float: left;
+}
+.facebook{
+  margin: 0 20px;
 }
 /* login
 ------------------------------------------------------------*/

@@ -18,18 +18,21 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <link rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
   <!-- css -->
   <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen">
-
+<!-- js -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/common.js"></script>
 </head>
 <body>
 <header>
     <div id="headerWrap">
-      <p id="logo"><a href="/"><img src="/images/logo.png" alt="MECOM"></a></p>
+      <p id="logo"><a href="/"><img src="/images/logo.png" alt="MECOM" width="155" height="52"></a></p>
       <div class="headerLink">
-        <a href="/login" class="borderLink post">Post</a>
+        <a href="/user/<%= @user.user %>" class="borderLink post">表示を確認</a>
         <a href="/logout" class="borderLink logout">Logout</a>
       </div>
     </div>
   </header>
+  <div id="top"></div>
 <div class="boxWrap clearfix wrap">
   <div class="acountBox whitebox">
   <div class="acountBg">
@@ -51,11 +54,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
       <dt>IMAGE</dt>
       <dd class="fileform"><input type="file" name="file"></dd>
       <dt>TITLE</dt>
-      <dd><input type="text" name="title"></dd>
+      <dd><input type="text" name="title" placeholder="※16文字以内"></dd>
       <dt>DESCRIPTION</dt>
-      <dd><input type="text" name="explain"></dd>
+      <dd><input type="text" name="explain" placeholder="※40文字以内"></dd>
       <dt>URL</dt>
-      <dd><input type="url" name="url"></dd>
+      <dd><input type="url" name="url" placeholder="http://example.com/"></dd>
     </dl>
       <input type="submit" value="POST" id="postBtn">
     </form>
@@ -90,6 +93,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     })
   </script>
   </div>
+  <p class="pagetop"><a href="#top">↑</a></p>
 </body>
 </html>
 

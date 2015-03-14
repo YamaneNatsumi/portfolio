@@ -14,16 +14,21 @@
 <link rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
   <!-- css -->
   <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen">
+  <!-- js -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/common.js"></script>
+  
 </head>
 <body>
 	<header>
 		<div id="headerWrap">
-			<h1 id="logo"><a href="/"><img src="/images/logo.png" alt="MECOM"></a></h1>
+			<h1 id="logo"><a href="/"><img src="/images/logo.png" alt="MECOM" width="155" height="52"></a></h1>
 			<div class="headerLink">
-				<a href="/login" class="borderLink post">Post</a>
+				<a href="/login" class="borderLink post animsition-link" data-animsition-out="fade-out">Post</a>
 			</div>
 		</div>
 	</header>
+	<div id="top"></div>
   <div class="boxWrap clearfix wrap threeColumn">
   	<% @posts.each do |post| %>
     <div data-id="<%= post.id %>" class="postBox whitebox">
@@ -38,6 +43,7 @@
     </div>
     <% end %>
   </div>
+  <p class="pagetop"><a href="#top">↑</a></p>
 </body>
 </html>
 
